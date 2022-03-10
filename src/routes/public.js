@@ -13,12 +13,15 @@ function PublicRoutes() {
         <Routes>
             <Route path="/" element={<Navigate to={`/${PATH.HOME}`} />} />
             <Route path={`/${PATH.HOME}`} key='home' element={<Home />} />
-            <Route path={`/${PATH.NEWS}`} element={<News />} />
+            <Route path={`/${PATH.NEWS}`} element={<News />} >
+                <Route path=':id' element={<BlogContent />} />
+            </Route>
             <Route path={`/${PATH.SCHOLARSHIP}`} element={< Scholarship />} />
             <Route path={`/${PATH.ACADEMY}`} element={<Academy />} />
             <Route path={`/${PATH.CAREERS}`} element={<Careers />} />
             <Route path={`/${PATH.ABOUT_US}`} element={<AboutUs />} />
-            <Route path={'/maskon-teamed-up-with-ancient8-to-empower-gamefi-scholars'} element={<BlogContent />} />
+            {/* <Route path={`/1`} element={<BlogContent />} /> */}
+
         </Routes>
     )
 }

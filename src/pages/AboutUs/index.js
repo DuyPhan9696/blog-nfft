@@ -8,6 +8,7 @@ function AboutUs() {
     const [hasMore, sethasMore] = useState(true);
     const [page, setpage] = useState(1);
     const [allNotify, setAllNotify] = useState([])
+    const pathLink = 'about-us'
     useEffect(() => {
         const getLength = async () => {
             try {
@@ -68,6 +69,8 @@ function AboutUs() {
 
 
     }
+    console.log(pathLink)
+
     return (
         <>
             <ListNotifyWrapper>
@@ -78,7 +81,7 @@ function AboutUs() {
                     isImage={true}
                     linkImage={'/images/notify1.jpg'}
                 />
-                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} />
+                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} pathLink={pathLink} />
             </ListNotifyWrapper>
         </>
     )

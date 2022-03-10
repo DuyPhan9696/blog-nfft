@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-function Notify({ notify }) {
+function Notify({ notify, pathLink }) {
+    console.log(notify)
     return (
         <div className='notify-item flex-column'>
-            <Link className="notify-head" to={`/${notify.slug}`}>
+            <Link className="notify-head" to={`/${pathLink}/${notify.id}`}>
                 <img className="img-notify" src={`${notify.banner}`} />
             </Link>
             <div className="notify-body d-flex flex-column flex-fill" href="">
-                <Link to={`/${notify.slug}`} className="notify-bd-start">
+                <Link to={`/${notify.id}`} className="notify-bd-start">
                     <div className="tag">{notify.tags}</div>
                     <h2 className="title">{notify.name}</h2>
                     <p className='content'>

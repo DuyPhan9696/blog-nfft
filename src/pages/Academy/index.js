@@ -8,6 +8,7 @@ function Academy() {
     const [hasMore, sethasMore] = useState(true);
     const [page, setpage] = useState(1);
     const [allNotify, setAllNotify] = useState([])
+    const pathLink = 'academy'
     useEffect(() => {
         const getLength = async () => {
             try {
@@ -79,7 +80,7 @@ function Academy() {
                     isImage={false}
                     linkImage={'/images/notify1.jpg'}
                 />
-                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} />
+                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} pathLink={pathLink} />
             </ListNotifyWrapper>
         </>
     )
