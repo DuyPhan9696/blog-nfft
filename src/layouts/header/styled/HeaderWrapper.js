@@ -35,6 +35,15 @@ export const HeaderWrapper = styled.div`
             }
         }
     }
+    .tab-mb{
+        a{
+            color: rgba(255,255,255,.55);
+            &.active{
+                color:#FFFFFF;
+                font-weight:600;
+            }
+        }
+    }
     @media only screen and (max-width: 991px) {
         .icon-menu-mb{
             color:#fff;

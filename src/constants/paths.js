@@ -1,5 +1,5 @@
 export const PATH = {
-    HOME: '',
+    HOME: 'home',
     NEWS: 'news',
     SCHOLARSHIP: 'scholarship',
     ABOUT_US: 'about-us',

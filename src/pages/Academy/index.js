@@ -5,13 +5,30 @@ import { ListNotifyWrapper } from '../../components/ListNotify/styled/ListNotify
 import pageApi from '../../api/pageApi'
 function Academy() {
     const [listNotify, setListNotify] = useState([])
+    const [hasMore, sethasMore] = useState(true);
+    const [page, setpage] = useState(1);
+    const [allNotify, setAllNotify] = useState([])
     useEffect(() => {
-        const fetchPage = async () => {
+        const getLength = async () => {
             try {
                 const params = {
                     slug: 'academy',
                     language: 'en',
-                    pageSize: 10,
+                    pageSize: 999999,
+                    pageIndex: 0
+                }
+                const response = await pageApi.get(params);
+                setAllNotify(response.response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        const getData = async () => {
+            try {
+                const params = {
+                    slug: 'academy',
+                    language: 'en',
+                    pageSize: 3,
                     pageIndex: 0
                 }
                 const response = await pageApi.get(params);
@@ -21,19 +38,48 @@ function Academy() {
             }
         }
 
-        fetchPage();
+        getData();
+        getLength();
     }, [])
+    const fetchPage = async () => {
+        try {
+            const params = {
+                slug: 'academy',
+                language: 'en',
+                pageSize: 3,
+                pageIndex: page
+            }
+            const response = await pageApi.get(params);
+            const dataRes = response.response.data
+            return dataRes
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const fetchData = async () => {
+        const pageFromSever = await fetchPage();
+        //console.log(pageFromSever)
+        setTimeout(() => {
+            setListNotify([...listNotify, ...pageFromSever])
+            if (pageFromSever.length === 0 || pageFromSever.length < 3) {
+                sethasMore(false);
+            }
+            setpage(page + 1);
+        }, 1000)
+
+
+    }
     return (
         <>
             <ListNotifyWrapper>
                 <SumNotify
                     tag={'Tagged'}
                     title={'Academy'}
-                    content={` A collection of ${listNotify.length} posts`}
+                    content={` A collection of ${allNotify.length} posts`}
                     isImage={false}
                     linkImage={'/images/notify1.jpg'}
                 />
-                <ListNotify listNotify={listNotify} />
+                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} />
             </ListNotifyWrapper>
         </>
     )
