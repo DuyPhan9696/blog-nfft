@@ -7,7 +7,6 @@ function Careers() {
     const [listNotify, setListNotify] = useState([])
     const [hasMore, sethasMore] = useState(true);
     const [page, setpage] = useState(1);
-    const pathLink = 'careers'
     useEffect(() => {
         const getData = async () => {
             try {
@@ -64,7 +63,7 @@ function Careers() {
                     isImage={true}
                     linkImage={'/images/notify1.jpg'}
                 />
-                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} pathLink={pathLink} />
+                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} />
             </ListNotifyWrapper>
         </>
     )

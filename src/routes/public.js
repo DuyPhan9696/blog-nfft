@@ -13,9 +13,8 @@ function PublicRoutes() {
         <Routes>
             <Route path="/" element={<Navigate to={`/${PATH.HOME}`} />} />
             <Route path={`/${PATH.HOME}`} key='home' element={<Home />} />
-            <Route path={`/${PATH.NEWS}`} element={<News />} >
-                <Route path=':id' element={<BlogContent />} />
-            </Route>
+            <Route path={`/${PATH.NEWS}`} element={<News />} />
+            <Route path='/info/:id' element={<BlogContent />} />
             <Route path={`/${PATH.SCHOLARSHIP}`} element={< Scholarship />} />
             <Route path={`/${PATH.ACADEMY}`} element={<Academy />} />
             <Route path={`/${PATH.CAREERS}`} element={<Careers />} />

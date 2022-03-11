@@ -1,10 +1,14 @@
 import React from 'react'
 
-const BlogBanner = () => {
+const BlogBanner = (dataBanner) => {
+    console.log(dataBanner)
     return (
         <div className='blog-banner d-grid'>
             <div></div>
-            <img className="img-blog" src="/images/notify1.jpg" />
+            {/* <img className="img-blog" src={dataBanner.dataBanner[0]} /> */}
+            {(dataBanner.length === 0) ?
+                ' ' : <img className='img-blog' src={dataBanner.dataBanner[0].banner} />
+            }
             <div></div>
         </div>
     )

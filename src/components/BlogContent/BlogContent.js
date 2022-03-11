@@ -5,36 +5,56 @@ import BlogBanner from './BlogBanner'
 import BlogContainer from './BlogContainer'
 import BlogTitle from './BlogTitle'
 import blogContentApi from '../../api/blogContentApi'
+import pageApi from '../../api/pageApi'
 import { BlogContentWrapper } from './styled/BlogContentWrapper'
 const BlogContent = () => {
     const infos = useParams()
-    console.log(infos.id)
-    const [blogContent, setBlogContent] = useState([])
+    const [blogContainer, setBlogContainer] = useState([])
+    const [blogHeader, setBlogHeader] = useState([])
     useEffect(() => {
-        const fetchPage = async () => {
+
+        const getPage = async () => {
             try {
                 const params = {
-                    idBlog: 1,
+                    idBlog: infos.id,
                     language: 'en',
                     pageSize: 2,
                     pageIndex: 0
                 }
                 const response = await blogContentApi.getAll(params);
-                setBlogContent(response.response.data)
+                setBlogContainer(response.response.data)
 
             } catch (error) {
                 console.log(error)
             }
         }
-
-        fetchPage();
+        const getHeaderPage = async () => {
+            try {
+                const params = {
+                    language: 'en',
+                    pageSize: 99999,
+                    pageIndex: 0
+                }
+                const response = await pageApi.get(params);
+                setBlogHeader(response.response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getPage();
+        getHeaderPage()
     }, [])
-    console.log(blogContent)
+    // console.log(blogHeader)
+    let dataHeader = blogHeader.filter((item) => {
+        return item.id == infos.id
+    })
+
+    // console.log(dataHeader)
     return (
         <BlogContentWrapper>
             <Container>
                 <BlogTitle />
-                <BlogBanner />
+                <BlogBanner dataBanner={dataHeader} />
                 <BlogContainer />
             </Container>
         </BlogContentWrapper>

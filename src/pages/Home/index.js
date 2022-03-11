@@ -8,7 +8,6 @@ function Home() {
     const [listNotify, setListNotify] = useState([])
     const [hasMore, sethasMore] = useState(true);
     const [page, setpage] = useState(1);
-    const pathLink = 'home'
     useEffect(() => {
         const getData = async () => {
             try {
@@ -58,7 +57,7 @@ function Home() {
         <>
             <BannerHome />
             <HomeListNotifyWrapper>
-                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} pathLink={pathLink} />
+                <ListNotify listNotify={listNotify} hasMore={hasMore} fetchData={fetchData} />
             </HomeListNotifyWrapper>
         </>
     )
