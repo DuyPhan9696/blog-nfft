@@ -4,7 +4,19 @@ export const BlogContentWrapper = styled.div`
     box-sizing:border-box;
     background:#151719;
     color:white;
-    padding: 60px 0;
+    padding-top:60px;
+    h2{
+        font-size:28px;
+        font-weight:700;
+    }
+    p{
+        font-size:21px;
+        line-height:1.6em;
+        font-weight: 400;
+        margin-top:30px;
+        margin-bottom:0;
+        color:rgba(255,255,255,0.75);
+    }
     a{
         text-decoration:none;
         color:#66CC33;
@@ -65,23 +77,181 @@ export const BlogContentWrapper = styled.div`
         margin-top:44px;
         padding-bottom:44px;
         grid-template-columns: 3% 94% 3%;
+        width:100%;
         .img-blog{
             width:100%;
         }
     }
     
+    .blog-main{
+        p{
+            &:first-of-type{
+                margin-top:15px;
+            }
+        }
+    }
+    .blog-about-us{
+        margin-top:56px;
+        padding-bottom:60px;
+        .join{
+            font-weight: 700;
+            color:#FFF;
+        }
+        .link{
+            margin-top:30px;
+            font-size:21px;
+            a{
+                color:white;
+                text-decoration:underline;
+                font-weight:700;
+            }
+        }
+    }
     .inner-blog{
         h2{
             opacity:.9;
-            font-size:28px;
-            font-weight:700;
             line-height:33px;
+            margin-top:44px;
+            &:first-of-type{
+                margin-top:0;
+            }
         }
         figure{
-            margin-top:15px;
+            margin-top:44px;
+            width:100%;
             img{
                 width:100%;
             }
         }
+        .data-img{
+            h2{
+                margin-top:44px;
+                margin-bottom:15px;
+            }
+            figure{
+                margin-top:15px;
+            }
+        }
+        
+    }
+    .blog-sub-content{
+        padding:65px 0 72px;
+        width:100%;
+        
+        h1{
+            font-size:32px;
+            font-weight:700;
+            margin:0 0 30px;
+            text-align:center;
+        }
+        .subcribe-form{
+            width:100%;
+            max-width:500px;
+            font-size:18px;
+            padding: 5px 5px 5px 15px;
+            background: #fff;
+            border-radius: 8px;
+            color:#738a94;
+            span{
+                display: inline-block;
+                padding: 10px 15px;
+                color: #fff;
+                font-weight: 500;
+                background: #66CC33;
+                border-radius: 5px;
+            }
+        }
+    }
+    @media only screen and (max-width: 991px){
+        .container{
+            margin:0;
+            max-width: 100%;
+        }
+        .canvas{
+            margin:0 140px;
+        }
+        .blog-about-us{
+            padding-bottom:50px;
+        }
+        .blog-sub-content{
+            padding: 56px 0 62px;
+        }
+    }
+    @media only screen and (max-width: 767px){
+        h2{
+            font-size:23px;
+        }
+        p{
+            font-size:17px;
+        } 
+        .canvas{
+            margin:0 20px;
+        }
+        .inner-title {
+            h1{
+            font-size:40px;
+            }
+            p{
+                font-size:18px;
+            }
+        }
+        .blog-banner{
+            grid-template-columns: 20px auto 20px;
+        }
+        .blog-about-us{
+            padding-bottom:40px;
+            .link{
+                font-size:17px;
+            }
+        }
+        .inner-blog{
+            h2{
+                font-size:23px;
+            }
+        }
+        .blog-sub-content h1{
+            font-size:27px;
+        }
+        .blog-sub-content{
+            padding: 50px 0 57px;
+        }
+    }
+    @media only screen and (max-width: 575px){
+        .subcribe-form{
+            max-width:100%;
+        }
+        .blog-about-us{
+            padding-bottom:30px;
+        }
+        .blog-sub-content{
+            padding: 37px 0 42px;
+        }
+        .inner-title {
+            h1{
+            font-size:34px;
+            }
+        }
+    }
+    @media only screen and (max-width: 414px){
+        .canvas{
+            margin:0;
+        }
+        .blog-banner{
+            grid-template-columns: 0 auto 0;
+        }
+        .blog-sub-content{
+            .subcribe-form{
+                font-size: 16px;
+            }
+        }
+        .blog-sub-content{
+            padding: 29px 0 32px;
+        }
+        .inner-title {
+            h1{
+            font-size:28px;
+            }
+        }
+        
     }
 `

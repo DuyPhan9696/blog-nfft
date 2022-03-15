@@ -1,7 +1,7 @@
 import axiosClient from './axiosClient'
 const categoryApi = {
     getAll: () => {
-        const url = '/category';
+        const url = '/blog-category';
         return axiosClient.get(url);
     },
 }
